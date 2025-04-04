@@ -1,0 +1,29 @@
+FROM composer:latest AS composer
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+
+RUN composer require utopia-php/framework --no-dev --optimize-autoloader
+
+FROM php:8.2-cli
+
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y \
+    libssl-dev \
+    unzip \
+    libbrotli-dev \
+    && docker-php-ext-install pdo pdo_mysql
+
+# Install Swoole
+RUN pecl install swoole \
+    && docker-php-ext-enable swoole
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+# Copy application files from host to container
+COPY . .
+
+CMD ["php", "src/index.php"]
