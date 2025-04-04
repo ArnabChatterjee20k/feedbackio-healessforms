@@ -9,7 +9,7 @@ use Utopia\Database\Query;
 use Utopia\Validator\Text;
 use Utopia\Swoole\Request;
 use Utopia\Swoole\Response;
-
+App::init(function($request){},["request"]);
 
 App::post('/form')
     ->groups(["form"])
