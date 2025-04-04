@@ -1,0 +1,31 @@
+{
+    "name": "arnab/feedbackio-healessforms",
+    "autoload": {
+        "psr-4": {
+            "Arnab\\FeedbackioHealessforms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ArnabChatterjee20k",
+            "email": "arnabchatterjee.ac.2@gmail.com"
+        }
+    ],
+    "require": {
+        "cocur/slugify": "^3.0",
+        "utopia-php/http": "^1.0",
+        "utopia-php/framework": "*",
+        "utopia-php/cache": "0.10.*",
+        "utopia-php/cli": "0.15.*",
+        "utopia-php/config": "0.2.*",
+        "utopia-php/database": "0.53.4",
+        "utopia-php/registry": "0.5.*",
+        "utopia-php/swoole": "0.8.*"
+        },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "tbachert/spi": true
+        }
+    }
+}

@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  php:
+    build: .
+    container_name: php-fpm-composer
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8001-8080:8001-8080"  # Expose other ports in range 8001-8080
+    stdin_open: true
+    tty: true
+
+# docker exec -it php-fpm-composer bash
